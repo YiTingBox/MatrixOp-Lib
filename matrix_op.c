@@ -33,12 +33,19 @@ void matrix_elementwise_multiplication(double A[SIZE][SIZE],double B[SIZE][SIZE]
 //Linear
 void matrix_multiplication(double A[SIZE][SIZE],double B[SIZE][SIZE],double C[SIZE][SIZE]){
 	int i,j,k;
+	double temp[SIZE][SIZE];
 	for(i=0;i<SIZE;i++){
 		for(j=0;j<SIZE;j++){
-			C[i][j]=0;
+			double sum=0;
 			for(k=0;k<SIZE;k++){
-				C[i][j]+=A[i][k]*B[k][j];
+				sum+=A[i][k]*B[k][j];
 			}
+			temp[i][j]=sum;
+		}
+	}
+	for(i=0;i<SIZE;i++){
+		for(j=0;j<SIZE;j++){
+			C[i][j]=temp[i][j];
 		}
 	}
 }
@@ -91,7 +98,11 @@ void matrix_adj(double mat[SIZE][SIZE],double adj[SIZE][SIZE]){
 void matrix_inverse(double mat[SIZE][SIZE],double inverse[SIZE][SIZE]){
 	int i,j;
 	double det=matrix_det(mat);
-	if((int)det==0){
+	double abs_det=det;
+	if(det<0){
+		abs_det=-det;
+	}
+	if(abs_det<1e-9){
 		printf("Matrix is singular,no inverse.\n");
 		return;
 	}
