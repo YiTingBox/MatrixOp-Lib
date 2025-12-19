@@ -15,7 +15,7 @@ int main(){
 		{3.0, 4.0, 5.0}
 	};
 	double add_result[3][3]; double sub_result[3][3]; double wise_result[3][3]; double mult_result[3][3];
-	double trans_result[3][3];
+	double trans_result[3][3]; double adj_result[3][3]; double inverse_result[3][3];
 	
 	//test the result of Addition
 	printf("The result of A+B:\n");
@@ -28,7 +28,7 @@ int main(){
 	print_matrix(sub_result);
 	
 	//test the result of Element-wise Multiplication
-	printf("The result of A¢XB (Element-wise Multiplication):\n");
+	printf("The result of AÂ°B (Element-wise Multiplication):\n");
 	matrix_elementwise_multiplication(A,B,wise_result);
 	print_matrix(wise_result);
 	
@@ -37,10 +37,23 @@ int main(){
 	matrix_multiplication(A,B,mult_result);
 	print_matrix(mult_result);
 	
-	matrix_transpose(A,trans_result);
+	//test the result of Transpose A
 	printf("The result of Transpose A:\n");
+	matrix_transpose(A,trans_result);
 	print_matrix(trans_result);
 	
+	//test the value of determinant A
+	printf("The value of a determinant A: %.2f\n\n",matrix_det(A));
+	
+	//test the adjoint of A
+	printf("The adjoint of A:\n");
+	matrix_adj(A,adj_result);
+	print_matrix(adj_result);
+	
+	//test the inverse of A
+	printf("The inverse of A:\n");
+	matrix_inverse(A,inverse_result);
+	print_matrix(inverse_result);
 	
 	return 0;
 }
