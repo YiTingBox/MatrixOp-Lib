@@ -12,7 +12,7 @@ void matrix_multiplication(double A[SIZE][SIZE],double B[SIZE][SIZE],double C[SI
 void matrix_transpose(double mat[SIZE][SIZE],double trans[SIZE][SIZE]);
 
 //Advanced
-double matrix_det(double mat[SIZE][SIZE]); 
+double matrix_det(double mat[SIZE][SIZE]);
 void matrix_adj(double mat[SIZE][SIZE],double adj[SIZE][SIZE]);
 void matrix_inverse(double mat[SIZE][SIZE],double inverse[SIZE][SIZE]);
 
@@ -20,3 +20,4 @@ void matrix_inverse(double mat[SIZE][SIZE],double inverse[SIZE][SIZE]);
 void print_matrix(double mat[SIZE][SIZE]);
 
 #endif
+
